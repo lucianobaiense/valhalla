@@ -1,0 +1,80 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+    <div class="card component-changes">
+        <div class="card-header">
+            <i class="material-icons">assignment</i>
+        </div>
+
+        {% if changes %}
+            <table>
+                <thead>
+                    <th>Ticket</th>
+                    <th>Assunto</th>
+                    <th>Início</th>
+                    <th>Término</th>
+                    <th>Impacto</th>
+                    <th>Validada</th>
+                    <th>Ações</th>
+                </thead>
+
+                <tbody>
+                    {% for change in changes %}
+                        <tr>
+                            <td>{{ change.ticket }}</td>
+                            <td>{{ change.subject }}</td>
+                            <td>{{ change.start_date }}</td>
+                            <td>{{ change.close_date }}</td>
+                            <td>
+                                {% if change.impact == True %}
+                                    Sim
+                                {% else %}
+                                    Não
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                {% if change.validate == True %}
+                                    <i class="material-icons color-secondary small-icon">check_box</i>
+                                {% else %}
+                                    <i class="material-icons color-danger small-icon">check_box_outline_blank</i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <i class="material-icons color-secondary small-icon">edit</i>
+                                <i class="material-icons color-danger small-icon">close</i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if changes.has_previous %}
+                        <a href="?page=1" title="Primeira Página">
+                            <i class="material-icons">first_page</i>
+                        </a>
+                        <a href="?page={{ changes.previous_page_number }}" title="Página Anterior">
+                            <i class="material-icons">navigate_before</i>
+                        </a>
+                    {% endif %}
+
+                    <span class="current">
+                        Página {{ changes.number }} de {{ changes.paginator.num_pages }}.
+                    </span>
+
+                    {% if changes.has_next %}
+                        <a href="?page={{ changes.next_page_number }}" title="Próxima Página">
+                            <i class="material-icons">navigate_next</i>
+                        </a>
+                        <a href="?page={{ changes.paginator.num_pages }}" title="Última Página">
+                            <i class="material-icons">last_page</i>
+                        </a>
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            <h4 class="text-center">Não existem mudanças cadastradas</h4>
+        {% endif %}
+    </div>
+{% endblock %}

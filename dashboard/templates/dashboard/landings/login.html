@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Valhalla - Login</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/reset.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/login.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <div class="component-login">
+            <div class="container">
+                <!-- Login Header -->
+                <div class="component-login-header">
+                    <div class="component-brand">
+                        <h1><span class="color-primary">B2W</span> Ongoing</h1>
+                    </div>
+                </div>
+                <!-- END Login Header -->
+
+                <!-- Login Content -->
+                <div class="component-login-content">
+                    <div class="login-header">
+                        <h4>Login</h4>
+                        <p>Autenticação via Crowd</p>
+                    </div>
+                    <div class="login-box">
+                        <div class="login-text">
+                            <p>Use <span class="regular">nome.sobrenome</span> para logar</p>
+                        </div>
+                        <form action="{% url 'authenticate' %}" method="post" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="input-group flexbox full-width vertical-align-center">
+                                <div>
+                                    <i class="material-icons">face</i>
+                                </div>
+                                <div class="input-box">
+                                    <label>Usuário</label>
+                                    <input type="text" name="username" data-type="form-input"/>
+                                </div>
+                            </div>
+                            <div class="input-group flexbox full-width vertical-align-center">
+                                <div>
+                                    <i class="material-icons">lock_outline</i>
+                                </div>
+                                <div class="input-box">
+                                    <label>Senha</label>
+                                    <input type="password" name="password" data-type="form-input" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div class="login-submit">
+                                <input type="submit" value="Let's Go"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END Login Content -->
+
+                <!-- Footer -->
+                <div class="component-footer">
+                    <p>© 2018 Equipe Ongoing | Atender é a nossa paixão.</p>
+                </div>
+                <!-- END Footer -->
+            </div>
+        </div>
+        <script src="{% static 'dashboard/js/main.js' %}" charset="utf-8"></script>
+    </body>
+</html>

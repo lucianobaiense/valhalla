@@ -1,0 +1,359 @@
+/*---------------------------------------------------------
+    General
+-----------------------------------------------------------*/
+
+body{
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+h1{
+    font-size: 4.000em;
+    line-height: 64px;
+}
+h2{
+    font-size: 2.500em;
+    line-height: 40px;
+}
+h3{
+    font-size: 2.000em;
+    line-height: 32px;
+}
+h4{
+    font-size: 1.500em;
+    line-height: 24px;
+}
+h5{
+    font-size: 1.000em;
+    line-height: 16px;
+}
+h6{
+    font-size: 0.875em;
+    line-height: 14px;
+}
+p{
+    font-size: 0.9rem;
+    letter-spacing: 0.4px;
+    line-height: 1.25rem;
+}
+a, a:hover, a:focus, a:active{
+    text-decoration: none;
+}
+
+/*===== Material Icon =====*/
+
+.material-icons{
+    font-size: 1.667em;
+}
+
+/*===== Utilitys =====*/
+
+.bold{
+    font-weight: 700;
+}
+.regular{
+    font-weight: 400;
+}
+.color-primary{
+    color: #06EBC4;
+}
+.color-secondary{
+    color: #0FA3B1;
+}
+.color-danger{
+    color: #ff0000;
+}
+.bg-danger{
+    background-color: #ff0000;
+}
+.flexbox{
+    display: flex;
+}
+.space-between{
+    justify-content: space-between;
+}
+.baseline{
+    align-items: baseline;
+}
+.vertical-align-center{
+    align-items: center;
+}
+.half-width{
+    width:50%;
+}
+.full-width{
+    width:100%;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.small-icon{
+    font-size: 1.1rem;
+}
+.col-6{
+    width: 50%;
+}
+.clear-right{
+    clear: right;
+}
+.wrapper{
+    display: flex;
+}
+.img-resposive{
+    max-width: 100%;
+}
+.text-center{
+    text-align: center;
+}
+
+/*---------------------------------------------------------
+    Brand
+-----------------------------------------------------------*/
+
+.component-brand h1{
+    font-size: 1.250em;
+    text-transform: uppercase;
+}
+
+/*===== Content =====*/
+
+.dashboard-component{
+    box-sizing: border-box;
+    width: 100%;
+
+}
+.component-container{
+    padding: 24px 32px;
+}
+
+.component-section{
+    padding-bottom: 64px;
+}
+
+/*---------------------------------------------------------
+    Card
+-----------------------------------------------------------*/
+
+.card{
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 64px;
+    padding: 24px;
+
+    /* Box Shadow */
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+.card-header{
+    position: relative;
+    margin-bottom: 40px;
+}
+.card-header > i{
+    background-color: #0FA3B1;
+    border-radius: 4px;
+    color: #fff;
+    padding: 20px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+
+    /* Box Shadow */
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+.card-header > h4{
+    margin-left: 88px;
+}
+.card-double:first-child{
+    width:50%;
+    margin-right: 32px;
+}
+.card-double:last-child{
+    width:calc(50% - 32px);
+}
+
+/*---------------------------------------------------------
+    Table
+-----------------------------------------------------------*/
+table{
+    width: 100%;
+}
+th{
+    color: #0FA3B1;
+    font-size: 1.2em;
+    padding-bottom: 12px;
+    text-align: center;
+}
+td{
+    border-top: 1px solid #d2d2d2;
+    font-size: 0.9em;
+    padding: 12px 0 8px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*---------------------------------------------------------
+    Form
+-----------------------------------------------------------*/
+
+.input-group{
+    margin: 40px 0;
+}
+.input-group:last-child{
+    margin-bottom: 0;
+}
+.input-group .material-icons {
+    font-size: 1.714em;
+}
+.input-box{
+    margin-left: 12px;
+    position: relative;
+    width: 100%;
+}
+.input-box > label {
+    color: rgba(0,0,0,0.5);
+    font-size: 0.9em;
+    font-weight: 400;
+    top:0px;
+    position: absolute;
+    pointer-events: none;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+.input-box > label.green{
+    color: #0FA3B1;
+    font-size: 0.750em;
+    top:-12px;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+.input-box > input {
+    border:none;
+    border-bottom: 1px solid #d2d2d2;
+    width: 95%;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+.input-box > input.green {
+    border-bottom: 1px solid #0FA3B1;
+    animation-name: border;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+.input-box > input:focus,
+.input-box > input:active, textarea {
+    outline: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+textarea{
+    border: none;
+    border-bottom: 1px solid #d2d2d2;
+    width: 100%;
+    resize: none;
+}
+.input-box > textarea.green {
+    border-bottom: 1px solid #0FA3B1;
+    animation-name: border;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+input[type='file'] {
+  display: none;
+}
+button{
+    background-color: #0FA3B1;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 0.9em;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 8px 24px;
+
+    /* Box-shadow */
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+
+button:hover, button:active{
+    /* Box-shadow */
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.35);
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+/*---------------------------------------------------------
+    Footer
+-----------------------------------------------------------*/
+
+.component-footer{
+    position: fixed;
+    bottom:20px;
+    left:calc(50% - 154px);
+}
+.component-footer > p{
+    font-size: 0.875em;
+}
+.component-footer-base{
+    float: right;
+}
+.component-footer-base > p{
+    font-size: 0.875em;
+}
+
+/*---------------------------------------------------------
+    About
+-----------------------------------------------------------*/
+
+.about p {
+    line-height: 1.5em;
+    margin-top: 8px;
+}
+
+.about-img{
+    margin-right: 16px;
+}

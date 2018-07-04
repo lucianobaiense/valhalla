@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Valhalla - Bem vindo!</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/reset.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/register.css' %}" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <div class="component-register">
+            <div class="container">
+                <!-- Header -->
+                <div class="component-login-header">
+                    <div class="component-brand">
+                        <h1><span class="color-primary">B2W</span> Ongoing</h1>
+                    </div>
+                </div>
+                <!-- END Header -->
+
+                <!-- Content -->
+                <div class="component-register-content">
+                    <div class="register-box">
+                        <div class="register-form">
+                            <form action="{% url 'create-profile' %}" method="post" autoComplete="off" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="register-header">
+                                    <div class="avatar">
+                                        <label for="photo"><img src='https://valhalla-storage.s3.amazonaws.com/static/images/general/default-avatar.png' alt="Profile" width="120" height="120"/></label>
+                                        <input type="file" name="photo" id="photo" accept="image/*" required/>
+                                    </div>
+                                    <p>Escolha sua foto</p>
+                                    <h5>Bem vindo a Valhalla!</h5>
+                                    <h6>Esse é o seu primeiro login e precisamos completar seu cadastro.</h6>
+                                </div>
+
+                                <div class="input-group flexbox full-width">
+                                    <div class="input-box">
+                                        <label>Apelido</label>
+                                        <input type="text" name="nickname" data-type="form-input" maxlength="100"/>
+                                    </div>
+                                </div>
+
+                                <div class="input-group flexbox full-width">
+                                    <div class="input-box">
+                                        <label>Telegram</label>
+                                        <input type="text" name="telegram" data-type="form-input" maxlength="100" required/>
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Hipchat</label>
+                                        <input type="text" name="hipchat" data-type="form-input" maxlength="100" required/>
+                                    </div>
+                                </div>
+
+                                <div class="input-group flexbox full-width">
+                                    <div class="input-box">
+                                        <label>Skype</label>
+                                        <input type="text" name="skype" data-type="form-input" maxlength="100" required/>
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Ramal</label>
+                                        <input type="number" name="phone" data-type="form-input" max="99999" required/>
+                                    </div>
+                                </div>
+
+                                <div class="input-group full-width">
+                                    <div class="input-box">
+                                        <label>Sobre mim</label>
+                                        <textarea name="about" rows="8" cols="80" maxlength="400" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="register-submit text-right">
+                                    <button type="submit" name="button">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Content -->
+
+                <!-- Footer -->
+                <div class="component-footer">
+                    <p>© 2018 Equipe Ongoing | Atender é a nossa paixão.</p>
+                </div>
+                <!-- END Footer -->
+            </div>
+        </div>
+        <script src="{% static 'dashboard/js/main.js' %}" charset="utf-8"></script>
+    </body>
+</html>

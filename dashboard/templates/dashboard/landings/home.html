@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Valhalla - Nossos Valores</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/reset.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/home.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <div class="component-landing">
+            <div class="container">
+                <!-- Landing Header -->
+                <div class="component-landing-header">
+                    <div class="component-brand">
+                        <h1><span class="color-primary">B2W</span> Ongoing</h1>
+                    </div>
+
+                    <nav class="landing-nav">
+                        <ul>
+                            <li>
+                                <a href="{% url 'dashboard' %}" target="_self">
+                                    <i class="material-icons">dashboard</i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="material-icons">public</i>
+                                    Hermes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="material-icons">games</i>
+                                    Morpheus
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'profile' %}" target="_self">
+                                    <i class="material-icons">face</i>
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'logout' %}" target="_self">
+                                    <i class="material-icons">power_settings_new</i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- END Landing Header -->
+
+                <!-- Landing Content -->
+                <div class="component-landing-content">
+                    <h2>Nossos Valores</h2>
+                    <h4>Conheça os valores do Ongoing, seja embaixador dessa marca.</h4>
+                    <div class="row">
+                        <div class="landing-values col-md-3">
+                            <h6>União</h6>
+                            <i class="material-icons">favorite</i>
+                            <p>Sentimentos de "tribo" fazer as coisas do nosso jeito.
+                            Companheirismo, não posso fazer só o meu.</p>
+                        </div>
+                        <div class="landing-values landing-values-active col-md-3">
+                            <h6>Comprometimento</h6>
+                            <i class="material-icons">check_box</i>
+                            <p>Liberdade com responsabilidade.
+                            Assimilar, documentar e disseminar o conhecimento.</p>
+                        </div>
+                        <div class="landing-values col-md-3">
+                            <h6>Renovação</h6>
+                            <i class="material-icons">local_florist</i>
+                            <p>Melhoria contínua, ser hoje melhor do que foi ontem.
+                            Acostume-se com as mudanças, seja flexível.</p>
+                        </div>
+                        <div class="landing-values col-md-3">
+                            <h6>Referência</h6>
+                            <i class="material-icons">star</i>
+                            <p>Causar uma boa impressão e marcar/lembrar de forma positiva.
+                            Fazer mais com menos.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Landing Content -->
+
+                <!-- Footer -->
+                <div class="component-footer">
+                    <p>© 2018 Equipe Ongoing | Atender é a nossa paixão.</p>
+                </div>
+                <!-- END Footer -->
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- End JS -->
+     </body>
+</html>

@@ -1,0 +1,28 @@
+#--index-url=http://pypi.atlas.b2w/simple
+#--trusted-host pypi.atlas.b2w
+
+# Django
+Django==2.0.1
+pytz==2017.3
+
+# Crowd
+#crowd-1.0.1
+
+# Logger
+#b2w-logger-0.0.1
+
+# Requests
+certifi==2018.1.18
+chardet==3.0.4
+idna==2.6
+requests==2.18.4
+urllib3==1.22
+
+# Lxml
+lxml==4.1.1
+
+# Active Menu Links
+django-active-link==0.1.2
+
+# ImageField
+#pillow-5.0.0

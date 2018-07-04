@@ -1,0 +1,70 @@
+/*---------------------------------------------------------
+    Sidebar
+-----------------------------------------------------------*/
+
+.sidebar{
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.8));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+    color: rgba(255,255,255, 0.8);
+    padding: 32px 16px;
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 100vh;
+}
+
+.sidebar hr{
+    border-top:1px solid rgba(180,180,180,0.3);
+}
+.sidebar h5{
+    margin-left: 10px;
+}
+
+.sidebar .component-brand h1{
+    line-height: 18px;
+}
+
+/*===== Avatar =====*/
+.avatar > img{
+    border-radius: 50%;
+}
+
+/*===== Menu =====*/
+.component-navigation > ul > li{
+    margin-bottom: 12px;
+}
+.link-menu{
+    align-items: center;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    font-size: 1em;
+    padding: 12px 8px;
+    text-decoration: none;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+
+.link-menu:hover, .active{
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(255,255,255,0.1);
+    text-decoration: none;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+
+.link-menu > i{
+    margin-right: 8px;
+}

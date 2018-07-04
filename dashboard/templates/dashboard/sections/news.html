@@ -1,0 +1,111 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="tabs-menu" data-type="tabs-menu">
+        <a href="#" data-menu="register" class="tab-link"><i class="material-icons">add_box</i>Cadastrar</a>
+        <a href="#" data-menu="news" class="tab-link active-tab"><i class="material-icons">email</i>Novas</a>
+        <a href="#" data-menu="history" class="tab-link"><i class="material-icons">history</i>Histórico</a>
+    </div>
+
+    <div class="tabs-content" data-content="news">
+        {% if news %}
+            {% for value in news %}
+                <div class="component-news-timeline">
+                    <div class="timeline-card">
+                        <h4>{{ value.subject }}</h4>
+                        <p>{{ value.message }}</p>
+                        <div class="timeline-card-footer flexbox vertical-align-center space-between">
+                            <span>Criado em {{ value.created }}</span>
+                            <div class="footer-icons flexbox">
+                                <i class="material-icons color-secondary small-icon" title="Marcar como lida">check_box_outline_blank</i>
+                                {% if reader_id == value.author_id %}
+                                    <i class="material-icons color-secondary small-icon" title="Editar notícia">edit</i>
+                                    <form action="{% url 'delete-news' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="news_id" value="{{ value.id }}">
+                                        <button type="submit" name="button">
+                                            <i type="submit" class="material-icons color-danger small-icon" title="Excluir notícia">close</i>
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if news_photo == True %}
+                            <img src="{% get_media_prefix %}/{{ value.photo }}" title="{{ value.username }}"/>
+                        {% else %}
+                            <img src="https://valhalla-storage.s3.amazonaws.com/static/images/general/default-avatar.png" title="{{ value.username }}"/>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="card">
+                <h4 class="text-center">Sem notícias pendente leitura!</h4>
+            </div>
+        {% endif %}
+        <div class="clear"></div>
+    </div>
+
+    <div class="tabs-content" data-content="history">
+        {% if history %}
+            {% for value in history %}
+                <div class="component-news-timeline">
+                    <div class="timeline-card">
+                        <h4>{{ value.subject }}</h4>
+                        <p>{{ value.message }}</p>
+                        <div class="timeline-card-footer flexbox vertical-align-center space-between">
+                            <span>Criado em {{ value.created }}</span>
+                            <div class="footer-icons flexbox">
+                                <i class="material-icons color-secondary small-icon" title="Marcar como lida">check_box_outline_blank</i>
+                                {% if reader_id == value.author_id %}
+                                    <i class="material-icons color-secondary small-icon" title="Editar notícia">edit</i>
+                                    <form action="{% url 'delete-news' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="news_id" value="{{ value.id }}">
+                                        <button type="submit" name="button">
+                                            <i type="submit" class="material-icons color-danger small-icon" title="Excluir notícia">close</i>
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if history_photo == True %}
+                            <img src="{% get_media_prefix %}/{{ value.photo }}" title="{{ value.username }}"/>
+                        {% else %}
+                            <img src="https://valhalla-storage.s3.amazonaws.com/static/images/general/default-avatar.png" title="{{ value.username }}"/>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="card">
+                <h4 class="text-center">Sem histórico de notícias!</h4>
+            </div>
+        {% endif %}
+        <div class="clear"></div>
+    </div>
+
+    <div class="tabs-content" data-content="register">
+        <div class="card half-width news-form">
+            <form action="{% url 'create-news' %}" method="post" autoComplete="off">
+                {% csrf_token %}
+                <div class="input-group full-width">
+                    <div class="input-box">
+                        <label>Assunto</label>
+                        <input type="text" name="subject" data-type="form-input" maxlength="100" required/>
+                    </div>
+                </div>
+                <div class="input-group full-width">
+                    <div class="input-box">
+                        <label>Notícia</label>
+                        <textarea name="message" rows="8" cols="80" maxlength="400" required>{{ values.about }}</textarea>
+                    </div>
+                </div>
+                <button type="submit" name="button">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'dashboard/js/news.js' %}" charset="utf-8"></script>
+{% endblock %}

@@ -1,0 +1,74 @@
+/*---------------------------------------------------------
+    Topbar
+-----------------------------------------------------------*/
+
+/*===== Common =====*/
+.component-topbar{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topbar-left, .topbar-right-nav > ul {
+    align-items: center;
+    display: flex;
+}
+
+/*===== Topbar left =====*/
+.topbar-left > span{
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 16px;
+    padding: 8px 10px;
+
+    /* Box Shadow */
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.topbar-left > span > i{
+    color:rgba(0, 0, 0, 0.5);
+}
+/*===== Topbar right =====*/
+.topbar-right-nav > ul > li:not(:last-child){
+    margin-right: 24px;
+}
+
+.topbar-right-nav > ul > li > a >i{
+    color:#333;
+    font-size: 1.4rem;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+
+.topbar-right-nav > ul > li > a >i:hover{
+    color:#0FA3B1;
+
+    /* Transition */
+    -webkit-transition: all .2s ease;
+    -moz-transition:  all .2s ease;
+    -ms-transition:  all .2s ease;
+    -o-transition:  all .2s ease;
+    transition:  all .2s ease;
+}
+
+.topbar-right-nav > ul > li > a {
+    position: relative;
+}
+
+.notification-count{
+    background-color: #ff0000;
+    border-radius: 50%;
+    color:#fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 6px;
+    position: relative;
+    top:-24px;
+    right: -32px;
+    z-index: 1;
+}

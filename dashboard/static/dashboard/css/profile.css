@@ -1,0 +1,54 @@
+/*---------------------------------------------------------
+    Profile
+-----------------------------------------------------------*/
+.component-profile{
+    display: flex;
+}
+.profile-header{
+    margin-bottom: 80px;
+}
+.profile-header > span{
+    background-color: #0FA3B1;
+    border-radius: 4px;
+    color: #fff;
+    padding: 8px 8px 4px 8px;
+    position: absolute;
+    top:-50px;
+    left: 0;
+
+    /* Box Shadow */
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.profile-header > span > label{
+    cursor: pointer;
+}
+
+.profile-header > span > label > img{
+    border-radius: 4px;
+}
+
+.profile-header > h4{
+    font-size: 1.3em;
+    margin-left: 140px;
+}
+
+/*===== Card =====*/
+.component-profile-card:first-child{
+    width:65%;
+    margin-right: 32px;
+}
+.component-profile-card:last-child{
+    width:calc(35% - 32px);
+}
+.component-profile-card > h5{
+    font-weight: 400;
+    text-align: center;
+    margin-top: -32px;
+}
+.component-profile-card > p{
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    margin-top: 16px;
+
+}

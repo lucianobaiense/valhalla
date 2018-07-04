@@ -1,0 +1,30 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <i class="material-icons">account_balance</i>
+            <h4>Valhalla</h4>
+        </div>
+
+        <div class="flexbox">
+            <div class="about-img">
+                <img src="{% static 'dashboard/images/valhalla2.jpg' %}" alt="Valhalla" class="img-resposive" width="350px">
+            </div>
+
+            <div class="about">
+                <h2>Bem vindo!</h2>
+
+                <p>Valhalla (a pronúncia é val-rra-la ) na mitologia nórdica é um majestoso e enorme salão situado em Asgard a terra dos deuses e somente os mais valentes guerreiros recebem a honra de estar em Valhalla.</p>
+
+                <p>Toda orientação que você procura está aqui, Valhalla é sua nova casa!</p>
+
+                <p>Todos do Ongoing são valorosos guerreiros em busca de desafios e conhecimento.</p>
+
+                <p>Tenha orgulho de estar em Valhalla!</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% load static %}
+{% load active_link_tags %}
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Valhalla - Dashboard</title>
+        <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/reset.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/topbar.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/sidebar.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/profile.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/news.css' %}" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.ico' %}" type="image/x-icon">
+        <link rel="icon" href="{% static 'dashboard/images/favicon.ico' %}" type="image/x-icon">
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="component-brand">
+                    <h1><span class="color-primary">B2W</span> Ongoing</h1>
+                </div>
+                <hr/>
+                <div class="flexbox vertical-align-center">
+                    <div class="avatar">
+                        {% if display_photo %}
+                            <img src="{% get_media_prefix %}/{{ display_photo }}" alt="{{ name }}" width="48" height="48"/>
+                        {% else %}
+                            <img src="https://valhalla-storage.s3.amazonaws.com/static/images/general/default-avatar.png" alt="{{ name }}" width="48" height="48"/>
+                        {% endif %}
+                    </div>
+                    <h5>{{ display_name }}</h5>
+                </div>
+                <hr/>
+                <nav class="component-navigation">
+                    <ul>
+                        <li><a href="{% url 'dashboard' %}" class="{% active_link 'dashboard' %} link-menu"><i class="material-icons">dashboard</i>Dashboard</a></li>
+                        <li><a href="{% url 'leaderboard' %}" class="{% active_link 'leaderboard' %} link-menu"><i class="material-icons">trending_up</i>Leaderboard</a></li>
+                        <li><a href="{% url 'news' %}" class="{% active_link 'news' %} link-menu"><i class="material-icons">rss_feed</i>Notícias</a></li>
+                        <li><a href="{% url 'indicators' %}" class="{% active_link 'indicators' %} link-menu"><i class="material-icons">insert_chart</i>Indicadores</a></li>
+                        <li><a href="{% url 'changes' %}" class="{% active_link 'changes' %} link-menu"><i class="material-icons">date_range</i>Mudanças</a></li>
+                        <li><a href="{% url 'profile' %}" class="{% active_link 'profile' %} link-menu"><i class="material-icons">face</i>Profile</a></li>
+                        <li><a href="{% url 'about' %}" class="{% active_link 'about' %} link-menu"><i class="material-icons">library_books</i>Sobre</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <!-- END Sidebar -->
+
+            <!-- Content -->
+            <div class="dashboard-component" data-content="component">
+                <div class="component-container">
+
+
+                <!-- Topbar -->
+                <div class="component-topbar">
+                    <div class="topbar-left">
+                        <span><i class="material-icons">{{ section_icon }}</i></span>
+                        <h4>{{ section }}</h4>
+                    </div>
+                    <div class="topbar-right">
+                        <nav class="topbar-right-nav">
+                            <ul>
+                                {% if notifications_check == True %}
+                                    <li class="dropdown cursor-pointer">
+                                        <span class="notification-count">{{ notifications_count }}</span>
+                                        <a class="dropdown-toggle" id="notification" title="Ver notificações" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="material-icons">notifications_active</i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="notification">
+                                            {% if news_count > 0 %}
+                                                <li><a href="{% url 'news' %}">Você tem {{ news_count }} notícias não lidas</a></li>
+                                                {% if system_data %}
+                                                    <li role="separator" class="divider"></li>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if system_data %}
+                                                {% for value in system_data %}
+                                                    <li><a href="{% url 'read' %}?id={{ value.id }}&redirect={{ value.link }}">{{ value.message }}</a></li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="#" title="Não existem notificações">
+                                            <i class="material-icons">notifications</i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                <li>
+                                    <a href="{% url 'home' %}" title="Home">
+                                        <i class="material-icons">home</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Hermes">
+                                        <i class="material-icons">public</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Morpheus">
+                                        <i class="material-icons">games</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}" title="Logout">
+                                        <i class="material-icons">power_settings_new</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- END Topbar -->
+
+                <div class="component-section">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+
+                <!-- Footer -->
+                <div class="component-footer-base">
+                    <p>© 2018 Equipe Ongoing | Atender é a nossa paixão.</p>
+                </div>
+                <!-- END Footer -->
+                </div>
+            </div>
+            <!-- END Content -->
+        </div>
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="{% static 'dashboard/js/main.js' %}" charset="utf-8"></script>
+        <!-- End JS -->
+    </body>
+</html>
