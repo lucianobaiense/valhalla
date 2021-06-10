@@ -2,7 +2,7 @@
 #--trusted-host pypi.atlas.b2w
 
 # Django
-Django==2.0.1
+Django==2.2.24
 pytz==2017.3
 
 # Crowd
